@@ -1,4 +1,4 @@
-const { StringSession } = require("telegram/sessions");
+const { StringSession } = require("telegram.sessions");
 const { Api, TelegramClient } = require("telegram");
 const fs = require("fs");
 const path = require("path");
