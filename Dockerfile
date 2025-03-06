@@ -1,20 +1,23 @@
-# Use a lightweight Node.js image
+# Use official Node.js LTS version
 FROM node:18-alpine
 
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json before running npm install
-COPY package.json  . 
+# Install required dependencies
+RUN apk add --no-cache git
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm install --only=production
 
 # Copy the rest of the application files
 COPY . .
 
-# Expose the application port
+# Expose the application's port (change if necessary)
 EXPOSE 3000
 
-# Run the application
-CMD ["node", "src/server.js"]
+# Command to run the app
+CMD ["node", "src/index.js"]
