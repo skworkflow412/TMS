@@ -20,6 +20,6 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
-  "telegram": "^1.40.0"
+  "telegram": "^2.0.0"
   }
 }
